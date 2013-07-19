@@ -11,9 +11,16 @@ Does not use sqlalchemy
 In order to create the database
  - on command shell inside the flaskr dir>> python
  - inside python shell >> from flaskr import init\_db
- - inside python shell >> init\_db
+ - inside python shell >> init_db()
 
 To run the server
 - on command shell >> python flaskr.py
 
- 
+
+ For branch - v2_with_sqlite_sqlalchemy
+ - used declartive extenstion of sql alchemy
+
+    To create database-
+    - on command shell inside flask dir >> python
+    - inside python shell >> import database.py
+    - inside python shell >> init_db()
