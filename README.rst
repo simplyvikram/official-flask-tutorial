@@ -16,11 +16,11 @@ In order to create the database
 To run the server
 - on command shell >> python flaskr.py
 
+--------------------------------------------
+For branch - v2_with_sqlite_sqlalchemy
+- used declartive extenstion of sql alchemy
 
- For branch - v2_with_sqlite_sqlalchemy
- - used declartive extenstion of sql alchemy
-
-    To create database-
-    - on command shell inside flask dir >> python
-    - inside python shell >> import database.py
-    - inside python shell >> init_db()
+To create database-
+- on command shell inside flask dir >> python
+- inside python shell >> import database.py
+- inside python shell >> init_db()
