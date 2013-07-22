@@ -1,7 +1,8 @@
 
 # all the imports
-from flask import Flask, request, session, redirect, url_for, \
-     abort, render_template, flash
+from flask import Flask, request, session, redirect, url_for, abort,\
+    render_template, flash
+from flask.views import View
 
 from database import db_session
 from models import Entry
@@ -15,9 +16,7 @@ PASSWORD = 'default'
 # create our little application :)
 app = Flask(__name__)
 app.config.from_object(__name__)
-def foo():
-    print "calling foo"
-    print __name__
+
 
 # Database connections
 @app.teardown_appcontext
@@ -60,6 +59,20 @@ def login():
     return render_template('login.html', error=error)
 
 
+class Subtract(View):
+    def dispatch_request(self, x, y):
+        return render_template('subtract.html', result=x-y)
+app.add_url_rule('/subtract/<int:x>/<int:y>',
+                 view_func=Subtract.as_view('subtract'))
+
+
+class Add(View):
+    def dispatch_request(self, x, y):
+        return render_template('add.html', result=x+y)
+app.add_url_rule('/add/<int:x>/<int:y>',
+                 view_func=Add.as_view('add'))
+
+
 @app.route('/logout')
 def logout():
     session.pop('logged_in', None)
@@ -68,4 +81,3 @@ def logout():
 
 if __name__ == '__main__':
     app.run()
-
